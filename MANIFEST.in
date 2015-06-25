@@ -1,0 +1,7 @@
+recursive-include arges/data *
+recursive-exclude arges/data/dummy_test_dir/dummy_app/tcase/reports *
+recursive-exclude arges/data/dummy_test_dir/dummy_app/tuite/reports *
+
+
+
+

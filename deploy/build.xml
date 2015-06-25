@@ -1,0 +1,48 @@
+<project name="arges_deploy" default="all" basedir="../">
+<description>	Deploy Arges project </description>
+
+<tstamp>
+      <format property="touch.time" pattern="yyyy-MM-dd"/>
+</tstamp>
+	
+	
+<property environment="env" />
+	
+<property name="destfile" value="deploy/arges-${touch.time}.zip" />
+<property name="basedir" value="${env.basedir}/.." />
+<property name="includes" value="bin/**,dummy_test_dir/**,arges/**,thirdparty/**" />
+<property name="excludes" value="**/*.pyc, **/*.html" />
+
+<!--
+<property name="${destfile}" value="${env.destfile}" />
+<property name="${basedir}" value="${env.basedir}" />
+<property name="${includes}" value="${env.includes}" />
+<property name="${excludes}" value="${env.exceludes}" />
+-->
+
+<target name="init">
+	<echo>destfile = ${destfile}</echo>
+	<echo>basedir = ${basedir}</echo>
+	<echo>includes =  ${includes}</echo>
+	<echo>excludes = ${excludes}</echo>
+</target>
+
+	
+	
+<target name="zip" depends="init"> 
+	<zip destfile="${destfile}"
+		basedir="${basedir}"
+		includes="${includes}"
+		excludes="${excludes}"/>
+</target>
+	
+
+<target name="clean" 
+	description="clean up"> 
+	<delete file="${destfile}"/>
+</target>
+
+<target name="all" depends="clean, zip"/>
+
+</project>
+

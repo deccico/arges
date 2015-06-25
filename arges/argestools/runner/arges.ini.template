@@ -1,0 +1,26 @@
+#if you don't have an arges.ini file, you can use this file
+#as a model, just copy this file to arges.ini 
+
+[arges_test_app_params]
+#log level of the application 
+#according to:
+#CRITICAL 50 
+#ERROR 40 
+#WARNING 30 
+#INFO 20 
+#DEBUG 10 
+#NOTSET 0 
+log_level = 20
+#format of the logger (see Python logging module documentation for more info)  
+log_format = %(asctime)-15s-L%(levelno)s-%(message)s - %(filename)s-%(lineno)d
+stop the browser at the end of the execution = True
+
+[arges_test_files_params]
+#following parameters are included in the test file parameters.
+#in case of a parameter is define here and in the tdata file
+#the tdata parameter will have precedence    
+${selenium_port} = 4444
+${selenium_server} = localhost
+${and_wait_time_out} = 30
+${pv_time_out} = 60
+
